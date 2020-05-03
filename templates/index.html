@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Face Recognition</title>
+    <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    {{ dropzone.load() }}
+    {{ dropzone.style('border: 2px dashed #0087F7; margin: 5%; height: 400px') }}
+    </head>
+
+  <body>
+    {% include 'includes/_navbar.html' %}
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Welcome to the Face Recognition Application</h1>
+        <p class="lead">This application is to create a face recognition of an uploaded image and finding the best match from database of images using the popular Deep Learning Algorithm CNN!</p>
+      </div>
+      <div class="lead" styling="padding:10px">
+      {{ dropzone.create(action_view='index') }}
+      </div>
+    </div>
+
+  </body>
+</html>

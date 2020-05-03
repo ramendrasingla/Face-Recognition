@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Face Recognition</title>
+    <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel = "stylesheet" href="/static/style_b17.css">
+    </head>
+
+  <body style="background: url('file://static/indian-army-logo-157795-1766521.png')">
+    {% include 'includes/_navbar.html' %}
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Results</h1>
+      </div>
+      <div class = "container">
+            {% for ix in range(0,len) %}
+            <div class="jumbotron text-center">
+              <div class="row">
+              <div class="frame-input">
+                <img src="/static/uploads/{{ file_urls[ix] }}"/>
+                <h4 style="padding:30px;">Attached above is the uploaded image {{ix+1}}</h4>
+                <div class="frame">
+                {% for iy in range(0,positive[ix]) %}
+                <div class="flip-card">
+                  <img src="/static/dataset/{{result1[3*ix+iy]}}"/>
+                  <p class="lead">Name: {{result1[3*ix+iy]}}</p>
+                </div>
+                {% endfor %}
+                {% if positive[ix]==0 %}
+                <div class="flip-card">
+                  <div class="alert alert-danger" role="alert" style="text-align:center;">
+                    <strong>WARNING: </strong>The image uploaded has no match in the database!
+                </div>
+              </div>
+                {% endif %}
+              </div>
+            </div>
+              </div>
+                  </div>
+            {% endfor %}
+
+  </div>
+  </body>
+</html>
